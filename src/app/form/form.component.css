@@ -1,0 +1,10 @@
+form{
+    padding:20px;
+    border-radius: 2%;
+    background-color: rgb(208, 225, 225);
+    font-weight: 600;
+}
+button{
+    color: white;
+    background-color: rgba(213, 10, 10, 0.844);
+}

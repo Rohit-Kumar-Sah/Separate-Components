@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <thead>
+      <tr class="row" >
+        <th  class="col-3">Date</th>
+        <th  class="col-3">Amount</th>
+        <th  class="col-5" >Description</th>
+        <th  class="col-1 " >Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="row"  *ngFor=" let item of insert ; let i = index">
+            <td class="col-3">{{myDate | date:'fullDate'}}</td>
+            <td class="col-3">{{item.amount}}</td>
+            <td class="col-5">{{item.description}}</td>
+            <td class="col-1"><button class="btn" (click)="deleteme(i)">❌</button></td>
+          </tr>
+     
+    </tbody>
+  </table>
