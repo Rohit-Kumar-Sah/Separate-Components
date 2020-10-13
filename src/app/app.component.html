@@ -1,6 +1,12 @@
-<div class="container">
-  <h1> Expense Logger</h1>
+<!-- <div class="container">
+  
   <hr>
 <app-form (formdata)="receive($event)" ></app-form><br>
 <app-table [insert]="data" ></app-table>
-</div>
+
+</div> -->
+<h1> Expense Logger</h1>
+<button class="btn btn-info m-5" [routerLink]="'/table'">Table</button>
+<button class="btn btn-warning m-5" [routerLink]="'/form'">Form</button>
+
+<router-outlet></router-outlet>
