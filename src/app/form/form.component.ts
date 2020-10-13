@@ -1,6 +1,7 @@
 import { Output } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { MyService } from '../data.service';
+import {FormControl,FormGroup,Validator, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -9,20 +10,21 @@ import { MyService } from '../data.service';
 })
 export class FormComponent implements OnInit {
 
-  @Output() formdata = new EventEmitter<{amount,description}>();
   constructor( private myservice : MyService) { }
+Expense = new FormGroup({
+  Amount : new FormControl(null,[Validators.required,Validators.pattern('^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$')]),
+  Description : new FormControl(null,[Validators.required])
 
-  ngOnInit(): void {
+})
+ngOnInit(): void {
     
-  }
+ }
 
-  data : {}[] 
-
-  submit(f)
+ 
+  submit()
   {
-    this.myservice.setData(f.value.Amount,f.value.Description)
-    // console.log(this.myservice.getData())
-    // // this.formdata.emit({amount:f.value.Amount,description:f.value.Description})
+    console.log(this.Expense)
+    this.myservice.setData(this.Expense.value.Amount,this.Expense.value.Description)
   } 
 
 }

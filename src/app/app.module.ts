@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { TableComponent } from './table/table.component';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
 import { MyService } from './data.service';
 
@@ -23,7 +24,7 @@ const routes : Routes = [
     FormComponent,
     TableComponent
   ],
-  imports: [FormsModule,
+  imports: [ReactiveFormsModule,
     BrowserModule, RouterModule.forRoot(routes)
   ],
   providers: [MyService],
