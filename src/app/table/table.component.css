@@ -2,3 +2,13 @@ button{
     border-radius: 50%;
     background-color: rgb(119, 214, 119);
 }
+table{
+    background-color: rgba(187, 239, 245, 0.624)
+}
+tbody tr{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+thead tr{
+    background-color: cadetblue;
+}

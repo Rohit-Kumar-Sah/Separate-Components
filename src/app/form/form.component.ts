@@ -20,11 +20,17 @@ ngOnInit(): void {
     
  }
 
+ btnclick=false
  
   submit()
   {
+    this.btnclick=true
+    setTimeout(() => {
+      this.btnclick=false;
+    }, 1000);
     console.log(this.Expense)
     this.myservice.setData(this.Expense.value.Amount,this.Expense.value.Description)
+   this.Expense.reset()
   } 
 
 }

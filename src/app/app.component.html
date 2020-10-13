@@ -5,8 +5,18 @@
 <app-table [insert]="data" ></app-table>
 
 </div> -->
-<h1> Expense Logger</h1>
-<button class="btn btn-info m-5" [routerLink]="'/table'">Table</button>
-<button class="btn btn-warning m-5" [routerLink]="'/form'">Form</button>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class=" mr-auto w-100 h1" href="#">Expense Logger</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="btn btn-warning mr-3" [routerLink]="'/form'">Form</a>
+      <a  class="btn btn-info" [routerLink]="'/table'">Table</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="router-outlet pt-5">
 <router-outlet></router-outlet>
+</div>

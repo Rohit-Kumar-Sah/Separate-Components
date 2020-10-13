@@ -15,7 +15,8 @@
 
 
   <!-- reactive form -->
-  <form (ngSubmit)="submit()" [formGroup]="Expense"  >
+
+  <form (ngSubmit)="submit()"  class="container" [formGroup]="Expense"  >
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Amount</label>
@@ -30,4 +31,5 @@
       </div>
     </div>
         <button type="submit" class="btn btn-warning" [disabled]="!Expense.valid" >Add to Expenses</button>
+        <span class="h4 ml-5 text-success" *ngIf="btnclick">Expense Added!</span>
   </form>
