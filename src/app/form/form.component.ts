@@ -16,6 +16,9 @@ Expense = new FormGroup({
   Description : new FormControl(null,[Validators.required])
 
 })
+myday = new Date().getDate();
+mymonth = new Date().getMonth()+1;
+myyear = new Date().getFullYear();
 ngOnInit(): void {
     
  }
@@ -24,12 +27,14 @@ ngOnInit(): void {
  
   submit()
   {
+   
     this.btnclick=true
     setTimeout(() => {
       this.btnclick=false;
     }, 1000);
     console.log(this.Expense)
-    this.myservice.setData(this.Expense.value.Amount,this.Expense.value.Description)
+    this.myservice.setData(this.Expense.value.Amount,this.Expense.value.Description,this.myday,this.mymonth,this.myyear);
+    console.log(this.myservice.getData())
    this.Expense.reset()
   } 
 

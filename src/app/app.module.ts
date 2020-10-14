@@ -8,21 +8,23 @@ import { TableComponent } from './table/table.component';
 import { ReactiveFormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
 import { MyService } from './data.service';
+import { IndividualexpenseComponent } from './individualexpense/individualexpense.component';
 
 
 
 
 const routes : Routes = [
-  // {path : '' , component : AppComponent },
   {path : 'table' , component : TableComponent },
-  {path : 'form' , component : FormComponent }
+  {path : 'form' , component : FormComponent },
+  {path : 'form/:id' , component : IndividualexpenseComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    TableComponent
+    TableComponent,
+    IndividualexpenseComponent
   ],
   imports: [ReactiveFormsModule,
     BrowserModule, RouterModule.forRoot(routes)

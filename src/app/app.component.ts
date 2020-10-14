@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
+import { MyService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,10 @@ export class AppComponent {
   title = 'newComponent';
   data: { amount: any, description: any }[] 
   received: any
-
-  receive(event: { amount: any; description: any; }) {
-    this.received = event;
-    if (this.data) {
-      
-       this.data.push({ amount: event.amount, description: event.description });
-    }
-    else {
-      this.data = [{ amount: event.amount, description: event.description }];
-    }
+  totalExpense :number =0;
+  constructor(private myservice : MyService){}
+  ngDoCheck(){
+    this.totalExpense= this.myservice.totalExpense()
   }
-  
+ 
 }

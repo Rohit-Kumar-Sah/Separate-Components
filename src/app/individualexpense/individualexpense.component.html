@@ -1,0 +1,19 @@
+
+
+<div class="card text-white bg-info mb-3 container" style="max-width: 38rem;">
+    <div class="card-header" *ngIf="show">Rs. {{item.amount }}</div>
+    <div class="card-header" *ngIf="!show"><input type="text" value="{{item.amount}}" #amount></div>
+
+    <div class="card-body">
+        <h5 class="card-title" *ngIf="show">{{item.description}}</h5>
+        <h5 class="card-title" *ngIf="!show"><textarea type="text" value="{{item.description}}" #description></textarea></h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+    </div>
+    <div class="card-footer bg-transparent border-info d-flex ">
+        <div class=" font-italic">{{item.date.day}}/{{item.date.month}}/{{item.date.year}}</div>
+        <div class=" ml-auto">
+            <button class="btn btn-warning mr-3" (click)="edit()">Edit</button>
+            <button class="btn btn-success" (click)="save()">Save</button>
+        </div>
+    </div>
+</div>

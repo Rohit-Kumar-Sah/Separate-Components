@@ -1,4 +1,4 @@
-<table class=" container table table-striped">
+<table *ngIf="show"  class=" container table table-striped" >
   <thead>
     <tr class="row mr-0 ml-0 sticky-top" >
       <th  class="col-3">Date</th>
@@ -8,13 +8,19 @@
     </tr>
   </thead>
   <tbody>
-      <tr class="row mr-0 ml-0"  *ngFor=" let item of insert ; let i = index">
-          <td class="col-3">{{myDate | date:'fullDate'}}</td>
-          <td class="col-3">{{item.amount}}</td>
+      <tr class="row mr-0 ml-0"  *ngFor=" let item of insert ; let i = index" (click)="LoadRow(i)">
+          <td class="col-3">{{item.date.day}}/{{item.date.month}}/{{item.date.year}}</td>
+          <td class="col-3"> Rs. {{item.amount}}</td>
           <td class="col-5">{{item.description}}</td>
           <td class="col-1"><button class="btn" (click)="deleteme(i)">❌</button></td>
         </tr>
    
   </tbody>
 </table>
+
+<div *ngIf="!show" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">No Expenses Made Yet 😃</h1>
+  </div>
+</div>
 
