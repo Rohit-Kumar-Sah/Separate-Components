@@ -7,12 +7,12 @@ import { MyService } from './data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'newComponent';
+  title :string = 'newComponent';
   data: { amount: any, description: any }[] 
   received: any
   totalExpense :number =0;
   constructor(private myservice : MyService){}
-  ngDoCheck(){
+  ngDoCheck():void{
     this.totalExpense= this.myservice.totalExpense()
   }
  

@@ -1,7 +1,7 @@
 import { Output } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { MyService } from '../data.service';
-import {FormControl,FormGroup,Validator, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -10,32 +10,28 @@ import {FormControl,FormGroup,Validator, Validators} from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  constructor( private myservice : MyService) { }
-Expense = new FormGroup({
-  Amount : new FormControl(null,[Validators.required,Validators.pattern('^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$')]),
-  Description : new FormControl(null,[Validators.required])
+  btnclick: boolean = false
+  myday: number = new Date().getDate();
+  mymonth: number = new Date().getMonth() + 1;
+  myyear: number = new Date().getFullYear();
 
-})
-myday = new Date().getDate();
-mymonth = new Date().getMonth()+1;
-myyear = new Date().getFullYear();
-ngOnInit(): void {
-    
- }
+  constructor(private myservice: MyService) { }
+  Expense = new FormGroup({
+    Amount: new FormControl(null, [Validators.required, Validators.pattern('^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$')]),
+    Description: new FormControl(null, [Validators.required])
 
- btnclick=false
- 
-  submit()
-  {
-   
-    this.btnclick=true
+  })
+  ngOnInit(): void { }
+
+  submit(): void {
+    this.btnclick = true
     setTimeout(() => {
-      this.btnclick=false;
+      this.btnclick = false;
     }, 1000);
     console.log(this.Expense)
-    this.myservice.setData(this.Expense.value.Amount,this.Expense.value.Description,this.myday,this.mymonth,this.myyear);
+    this.myservice.setData(this.Expense.value.Amount, this.Expense.value.Description, this.myday, this.mymonth, this.myyear);
     console.log(this.myservice.getData())
-   this.Expense.reset()
-  } 
+    this.Expense.reset()
+  }
 
 }

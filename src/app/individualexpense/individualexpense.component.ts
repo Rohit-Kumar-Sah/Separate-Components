@@ -9,23 +9,25 @@ import { MyService } from '../data.service';
 })
 export class IndividualexpenseComponent implements OnInit {
 
+  itemNumber:number
+  show : boolean = true;
+  @ViewChild ('amount') amount : ElementRef;
+  @ViewChild('description') description : ElementRef;
+  item  : {amount,description,date:{day,month,year}} 
+
+
   constructor(private currentroute : ActivatedRoute, private myservice : MyService) { }
-itemNumber
-item  : {amount,description,date:{day,month,year}} 
   ngOnInit(): void {
 
     this.itemNumber= this.currentroute.snapshot.params.id;
     this.item=this.myservice.getData()[this.itemNumber]
   }
-  show= true;
-  edit()
+  edit() : void
   {
     this.show=false;
   }
 
-  @ViewChild ('amount') amount : ElementRef;
-@ViewChild('description') description : ElementRef;
-  save(){
+  save() : void{
     this.myservice.update(this.itemNumber,this.amount.nativeElement.value ,this.description.nativeElement.value)
 
     this.show=true
