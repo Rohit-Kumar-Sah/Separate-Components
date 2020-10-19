@@ -1,5 +1,5 @@
 export class MyService{
-    ar :  {amount:number,description : string ,date:{day:number,month:number,year:number}}[]=[]
+    ar :  {amount:number,description : string ,date:{day:number,month:number,year:number}}[] = []
     Amount : number ;
     Description : string ;
     

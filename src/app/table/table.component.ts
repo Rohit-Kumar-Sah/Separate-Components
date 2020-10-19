@@ -12,17 +12,17 @@ import { MyService } from '../data.service';
 export class TableComponent implements OnInit {
 
   show: boolean = true;
-  insert: { amount, description, date: { day, month, year } }[] = []
+  insert: { amount, description, date: { day, month, year } }[]
 
   constructor(private myservive: MyService, private myroute: Router) { }
   ngOnInit(): void {
     this.insert = this.myservive.getData()
     this.show = false;
 
-    if (this.insert.length == 0) { this.show = false }
+    if (!this.insert) { this.show = false }
     else { this.show = true }
     setTimeout(() => {
-      if (this.insert.length > 0) {
+      if (this.insert) {
 
         alert("Click on a Row to Edit it !")
       }
@@ -30,7 +30,7 @@ export class TableComponent implements OnInit {
 
   }
   ngDoCheck(): void {
-    if (this.insert.length == 0) { this.show = false }
+    if (this.insert.length==0) { this.show = false }
     else { this.show = true }
   }
   myDate = Date.now();
